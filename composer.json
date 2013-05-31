@@ -1,10 +1,10 @@
 {
     "name": "bilalq/strtomoney",
+    "type": "library",
     "description": "Library for parsing \"human\" money amounts to workable objects.",
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "mockery/mockery": "dev-master@dev"
-    },
+    "homepage": "https://github.com/bilalq/strtomoney",
+    "keywords": ["library", "string", "money", "strtomoney", "conversion", "exchange rate"],
+    "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
         {
@@ -12,8 +12,16 @@
             "email": "bilalquadri92@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
-
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mockery/mockery": "dev-master@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "StrToMoney": "src/"
+        }
     }
 }
