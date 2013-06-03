@@ -9,8 +9,17 @@
          syntaxCheck="false"
 >
     <testsuites>
-        <testsuite name="Package Test Suite">
-            <directory suffix=".php">./tests/</directory>
+        <testsuite name="Currencies Test Suite">
+            <directory suffix=".php">./tests/StrToMoney/Currencies</directory>
+        </testsuite>
+        <testsuite name="Exceptions Test Suite">
+            <directory suffix=".php">./tests/StrToMoney/Exceptions</directory>
+        </testsuite>
+        <testsuite name="Exchangers Test Suite">
+            <directory suffix=".php">./tests/StrToMoney/Exchangers</directory>
+        </testsuite>
+        <testsuite name="Interpreters Test Suite">
+            <directory suffix=".php">./tests/StrToMoney/Interpreters</directory>
         </testsuite>
     </testsuites>
 </phpunit>

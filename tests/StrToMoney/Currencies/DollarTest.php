@@ -57,8 +57,49 @@ class DollarTest extends PHPUnit_Framework_TestCase {
      * @expectedException StrToMoney\Exceptions\IllegalMutationException
      */
     public function testImmutabilityOfCode() {
-        $dollar = new Dollar(10, 3);
-        $dollar->code = 'fail';
+        $this->dollar->code = 'fail';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfSymbol() {
+        $this->dollar->symbol = 'meh';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfSubUnitSymbol() {
+        $this->dollar->subUnitSymbol = 'other';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfMainUnits() {
+        $this->dollar->mainUnits = '3';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfSubUnits() {
+        $this->dollar->subUnits = '3';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfUnitSeperator() {
+        $this->dollar->unitSeperator = '|';
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfSubUnitLimit() {
+        $this->dollar->subUnitLimit = '999';
     }
 
 }
