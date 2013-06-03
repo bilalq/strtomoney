@@ -1,5 +1,7 @@
 <?php namespace StrToMoney\Currencies;
 
+use StrToMoney\Exceptions\IllegalMutationException;
+
 abstract class Currency {
 
     protected $code;
@@ -53,6 +55,14 @@ abstract class Currency {
 
     public function getSubUnitLimit() {
         return $this->subUnitLimit;
+    }
+
+    public function __get($key) {
+        return (property_exists($this, $key)) ? $this->{$key} : null;
+    }
+
+    public final function __set($key, $value) {
+        throw new \StrToMoney\Exceptions\IllegalMutationException($key, $value);
     }
 
     public abstract function subUnitRepresentation();

@@ -14,6 +14,7 @@ class CurrencyTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testExists() {
+        $this->assertTrue(class_exists('Currency'));
         $this->assertNotNull($this->currency);
     }
 

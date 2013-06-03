@@ -2,11 +2,12 @@
 
 use \Mockery as m;
 use StrToMoney\Currencies\Dollar;
+use StrToMoney\Exceptions\IllegalMutationException;
 
 class DollarTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
-        $this->dollar = m::mock('Dollar');
+        $this->dollar = new Dollar(5, 12);
     }
 
     public function tearDown() {
@@ -50,6 +51,14 @@ class DollarTest extends PHPUnit_Framework_TestCase {
      */
     public function testNegativeCents() {
         $dollar = new Dollar(10, -3);
+    }
+
+    /**
+     * @expectedException StrToMoney\Exceptions\IllegalMutationException
+     */
+    public function testImmutabilityOfCode() {
+        $dollar = new Dollar(10, 3);
+        $dollar->code = 'fail';
     }
 
 }
