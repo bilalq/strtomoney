@@ -1,6 +1,6 @@
 <?php namespace StrToMoney\Currencies;
 
-class Dollar extends Currency {
+class USD extends Currency {
 
     protected $code = 'USD';
     protected $symbol = '$';

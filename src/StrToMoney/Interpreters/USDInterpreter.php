@@ -1,6 +1,6 @@
 <?php namespace StrToMoney\Interpreters;
 
-class DollarInterpreter extends Interpreter {
+class USDInterpreter extends Interpreter {
     public function __construct() {
     }
 

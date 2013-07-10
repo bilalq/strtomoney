@@ -1,13 +1,13 @@
 <?php
 
 use \Mockery as m;
-use StrToMoney\Currencies\Dollar;
+use StrToMoney\Currencies\USD;
 use StrToMoney\Exceptions\IllegalMutationException;
 
-class DollarTest extends PHPUnit_Framework_TestCase {
+class USDTest extends PHPUnit_Framework_TestCase {
 
     public function setUp() {
-        $this->dollar = new Dollar(5, 12);
+        $this->dollar = new USD(5, 12);
     }
 
     public function tearDown() {
@@ -15,27 +15,27 @@ class DollarTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testSubUnitRepresentation() {
-        $dollar = new Dollar(3, 4);
+        $dollar = new USD(3, 4);
         $this->assertEquals('04', $dollar->subUnitRepresentation());
 
-        $dollar = new Dollar(3, 30);
+        $dollar = new USD(3, 30);
         $this->assertEquals('30', $dollar->subUnitRepresentation());
 
-        $dollar = new Dollar(3, 0);
+        $dollar = new USD(3, 0);
         $this->assertEquals('00', $dollar->subUnitRepresentation());
     }
 
     public function testStringCasting() {
-        $dollar = new Dollar(4, 40);
+        $dollar = new USD(4, 40);
         $this->assertEquals('$4.40', strval($dollar));
 
-        $dollar = new Dollar(4, 4);
+        $dollar = new USD(4, 4);
         $this->assertEquals('$4.04', strval($dollar));
 
-        $dollar = new Dollar(0, 0);
+        $dollar = new USD(0, 0);
         $this->assertEquals('$0.00', strval($dollar));
 
-        $dollar = new Dollar(1000, 0);
+        $dollar = new USD(1000, 0);
         $this->assertEquals('$1000.00', strval($dollar));
     }
 
@@ -43,14 +43,14 @@ class DollarTest extends PHPUnit_Framework_TestCase {
      * @expectedException InvalidArgumentException
      */
     public function testNegativeDollars() {
-        $dollar = new Dollar(-10, 3);
+        $dollar = new USD(-10, 3);
     }
 
     /**
      * @expectedException InvalidArgumentException
      */
     public function testNegativeCents() {
-        $dollar = new Dollar(10, -3);
+        $dollar = new USD(10, -3);
     }
 
     /**
